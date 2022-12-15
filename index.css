@@ -1,0 +1,236 @@
+html {
+    box-sizing: border-box;
+     font-size: 62.5%; /* 1REM= 10px*/
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  /* Globales */
+  body{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+  }
+  a{
+    text-decoration: none;
+    color: #000;
+  }
+h1,h2,h3{
+    font-family: 'Playfair Display', serif;
+     margin: 0 0 5rem 0;  /*quitar margenes de los titulos */
+  }
+  h1{
+    font-size: 5rem;
+  }
+  h2{
+    font-size: 4rem;
+  }
+  h3{
+    font-size: 3rem;
+  }
+  .boton{
+  background-color: #8cbc00;
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+  padding: 1rem;
+  /* animacion css */
+  transition: background-color .3s ease-out ; /*de esta manera creo una animacion para background del hover*/
+  }
+  .boton:hover{ 
+    background-color: #769c02;
+  }
+  /* Header y navegacion */
+  .contenedor{ 
+    max-width: 120rem; /*1200px */
+    margin: 0 auto;
+  }
+  img{
+    max-width: 100%;
+    display: block;
+  }
+.nombre-sitio{
+     font-size:3.5rem;/*35px */
+    margin-top: 5rem;  /*50px */
+    text-align: center;
+}
+
+.nombre-sitio span{
+    color: #037bc0;
+}
+
+.nav-principal{
+    border-top: solid thin #e1e1e1;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+.nav-principal a{
+  font-size: 2.5rem;
+}
+.hero-img{
+    background-image: url(../furnitures-store/img/principal.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 55rem;
+}
+
+/* categorias */
+.categorias{
+  padding-top: 5rem;
+}
+.categorias h2,
+.contenido-principal h2{
+  text-align: center;
+  font-size: 3.5rem;
+}
+.categoria a{
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  font-size: 2.5rem;
+}
+.categoria a:hover{
+  background-color: #037bc0;
+  color: #fff;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+}
+.listado-categorias{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+}
+/* Bloque sobre nosotros */
+.sobre-nosotros{
+  margin-top: 2rem;
+  background-image: linear-gradient(to right, transparent 50%,#037bc0 50%, #037bc0 100% )
+  ,url(../furnitures-store/img/nosotros.jpg);
+  padding: 10rem 0;
+  background-repeat: no-repeat;
+  background-size: 100%, 120rem; /* esto es que le de un 100% a mi linear-gradient y 120 rem a mi imagen */
+  background-position: left center;
+}
+/* grid  */
+/* .sobre-nosotros-grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  column-gap: 8rem;
+ 
+}
+.texto-nosotros{
+ grid-column: 2 / 3;
+} */
+/* flex-box */
+.sobre-nosotros-flex{
+ display: flex;
+ justify-content: flex-end;
+}
+.texto-nosotros{
+  flex-basis: 50%;
+  padding-left: 10rem;
+  color: #fff;
+ }
+/* listado de productos */
+.contenido-principal{
+ padding-top: 5rem;
+}
+.listado-productos{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* column-gap: 2rem;
+  row-gap: 2rem; */
+  gap: 2rem;
+}
+.producto:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.producto:nth-child(1) img{
+  height: 45rem;
+  width: 100%;
+  object-fit: cover;
+}
+.producto:nth-child(2){
+  grid-column-start:1 ;
+  grid-column-end:4 ;
+}
+.producto:nth-child(2) img{
+  height: 30rem;
+  width: 100%;
+  object-fit: cover;
+ }
+.producto:nth-child(3){
+  grid-column-start:4 ;
+  grid-column-end:7 ;
+}
+.producto:nth-child(3) img{
+  height: 30rem;
+  width: 100%;
+  object-fit: cover;
+ }
+.producto:nth-child(4){
+  grid-column-start:1 ;
+  grid-column-end:3 ;
+}
+.producto:nth-child(5){
+  grid-column-start:3 ;
+  grid-column-end:5 ;
+}
+.producto:nth-child(6){
+  grid-column-start:5 ;
+  grid-column-end:7 ;
+}
+.producto{
+  background-color:#037bc0 ; 
+}
+.texto-producto{
+  text-align: center;
+  color: #fff;
+  padding: 2rem;
+}
+.texto-producto h3{
+  margin: 0;
+}
+.texto-producto p{
+  margin: 0 0 .5rem 0;
+}
+ .texto-producto .precio{  /*precio */
+ font-size: 2.8rem;
+ font-weight: 900;
+}
+
+/* Footer */
+.site-footer{
+  margin-top: 5rem;
+  padding-top: 5rem;
+  border-top: thin solid #e1e1e1;
+  
+}
+
+.site-footer h3{
+  margin-bottom: .5rem;
+}
+
+.flex-footer
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.footer-menu a{
+  display: block;
+}
+.footer-menu a:hover{
+  color: #037bc0;
+}
+
+.copyright{
+  margin-top: 5rem;
+  text-align: center;
+
+}
