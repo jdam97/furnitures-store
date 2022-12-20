@@ -1,6 +1,8 @@
 html {
     box-sizing: border-box;
-     font-size: 62.5%; /* 1REM= 10px*/
+     font-size: 62.5%; /*colocar esto es recomendable si quiero usar el sistema de media de REM ya 
+    que cada uno valdria 10px
+    1REM= 10px*/
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -35,14 +37,22 @@ h1,h2,h3{
   text-transform: uppercase;
   font-weight: 900;
   padding: 1rem;
+  text-align: center;
   /* animacion css */
   transition: background-color .3s ease-out ; /*de esta manera creo una animacion para background del hover*/
   }
   .boton:hover{ 
     background-color: #769c02;
   }
+  /* Utilidades */
+  .text-center{
+    text-align: center;
+  }
+  .max-width-30{
+    max-width: 30rem;
+  }
   /* Header y navegacion */
-  .contenedor{ 
+  .contenedor{  /* es necesario este .contenedor debido a que al iniciar cada seccion se usará */
     max-width: 120rem; /*1200px */
     margin: 0 auto;
   }
@@ -70,7 +80,7 @@ h1,h2,h3{
   font-size: 2.5rem;
 }
 .hero-img{
-    background-image: url(../furnitures-store/img/principal.jpg);
+    background-image: url(../img/principal.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -107,7 +117,7 @@ h1,h2,h3{
 .sobre-nosotros{
   margin-top: 2rem;
   background-image: linear-gradient(to right, transparent 50%,#037bc0 50%, #037bc0 100% )
-  ,url(../furnitures-store/img/nosotros.jpg);
+  ,url(../img/nosotros.jpg);
   padding: 10rem 0;
   background-repeat: no-repeat;
   background-size: 100%, 120rem; /* esto es que le de un 100% a mi linear-gradient y 120 rem a mi imagen */
@@ -142,7 +152,7 @@ h1,h2,h3{
   grid-template-columns: repeat(6, 1fr);
   /* column-gap: 2rem;
   row-gap: 2rem; */
-  gap: 2rem;
+  gap: 2rem; /* es un atajo de column-gap y row-gap */
 }
 .producto:nth-child(1) {
   grid-column-start: 1;
@@ -204,6 +214,14 @@ h1,h2,h3{
  font-weight: 900;
 }
 
+/* otro ejemplo del transition, hace que cuando haga hover en la img esta se demore en colocarse pequeña */
+/* .producto img{
+  transition: transform .3s ease-out ;
+}
+.producto img:hover{
+  transform: scale(.8);
+} */
+
 /* Footer */
 .site-footer{
   margin-top: 5rem;
@@ -211,16 +229,23 @@ h1,h2,h3{
   border-top: thin solid #e1e1e1;
   
 }
-
+/* flex-box */
+/* .flex-footer{
+  display: flex;
+  gap: 2rem;
+}
+.flex-footer div{
+  flex: 1;
+} */
+/* grid */
 .site-footer h3{
   margin-bottom: .5rem;
 }
+.grid-footer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 
-.flex-footer
-{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
 }
 .footer-menu a{
   display: block;
@@ -232,5 +257,60 @@ h1,h2,h3{
 .copyright{
   margin-top: 5rem;
   text-align: center;
+}
+/* Nosotros */
+.contenido-nosotros{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(auto-fit, minmax( 25rem, 1fr));
+  column-gap: 4rem;
+}
+.informacion-nosotros{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
+/* Blog */
+.contenedor-blog{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  column-gap: 4rem;
+}
+.entrada{
+  border-bottom: thin solid #e1e1e1;
+  padding-bottom: 4rem;
+  margin-bottom: 2rem;
+}
+ .entrada:last-of-type{ /*este se refiere al ultimo elemento */
+   border:none     /*acá estoy quitando el border del ultimo elemento del blog */
+}
+.entrada-meta{
+  display: flex;
+  justify-content: space-between;
+}
+.entrada-meta p{
+  font-weight:  700 /*tamaño de la fuente (bold o negrita) */
+}
+.entrada-meta span{
+  color: #037bc0;
+  font-weight: bold;
+}
+.contenido-entrada-blog{
+  width: 60rem;
+  margin: 0 auto;
+}
+/* Galeria */
+.galeria {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns:repeat(3,1fr); 
+  gap: 2rem;
+}
+.galeria img{
+  height: 40rem;
+  width: 40rem;
+  object-fit: cover;
 }
