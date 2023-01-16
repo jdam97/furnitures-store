@@ -65,13 +65,15 @@ h1,h2,h3{
   /* animacion css */
   transition: background-color .3s ease-out ; /*de esta manera creo una animacion para background del hover*/
   border: none;
-  width: 100%;
+  width: auto;
+  margin: 0 auto;
   }
   @media (min-width: 768px){ 
     .boton{
-      width: auto;
+      margin: 0;
     }
   }
+  
   .boton:hover{ 
     background-color: #769c02;
     cursor: pointer;
@@ -437,7 +439,9 @@ h1,h2,h3{
   object-fit: cover;
 }
 /* Formulario */
-
+form{
+  padding: 2rem;
+}
 .formulario{
   max-width: 600px;
   margin: 0 auto;
