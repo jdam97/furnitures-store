@@ -13,22 +13,46 @@ html {
     font-size: 1.6rem;
     line-height: 2;
   }
+
+h1,h2,h3{
+    font-family: 'Playfair Display', serif;
+     margin: 0 0 2rem 0;  /*quitar margenes de los titulos */
+  }
+  h1{
+    font-size: 3.8rem;
+  }
+  @media (min-width: 768px){ 
+    h1{
+      font-size: 5rem;
+    }
+  }
+  h2{
+    font-size: 3.2rem;
+  }
+  @media (min-width: 768px){ 
+    h2{
+      font-size: 4rem;
+    }
+  }
+  h3{
+    font-size: 2.4rem;
+  }
+  @media (min-width: 768px){ 
+    h3{
+      font-size: 3rem;
+    }
+  }
   a{
     text-decoration: none;
     color: #000;
   }
-h1,h2,h3{
-    font-family: 'Playfair Display', serif;
-     margin: 0 0 5rem 0;  /*quitar margenes de los titulos */
+  .contenedor{  /* es necesario este .contenedor debido a que al iniciar cada seccion se usará */
+    max-width: 120rem; /*1200px */
+    margin: 0 auto;
   }
-  h1{
-    font-size: 5rem;
-  }
-  h2{
-    font-size: 4rem;
-  }
-  h3{
-    font-size: 3rem;
+  img{
+    max-width: 100%;
+    display: block;
   }
   .boton{
   background-color: #8cbc00;
@@ -41,6 +65,7 @@ h1,h2,h3{
   /* animacion css */
   transition: background-color .3s ease-out ; /*de esta manera creo una animacion para background del hover*/
   border: none;
+  width: 100%;
   }
   .boton:hover{ 
     background-color: #769c02;
@@ -50,20 +75,17 @@ h1,h2,h3{
   .text-center{
     text-align: center;
   }
-  .max-width-30{
-    max-width: 30rem;
+  @media (min-width: 768px){ 
+    .max-width-30{
+      max-width: 30rem;
+    }
   }
+  
   /* Header y navegacion */
-  .contenedor{  /* es necesario este .contenedor debido a que al iniciar cada seccion se usará */
-    max-width: 120rem; /*1200px */
-    margin: 0 auto;
-  }
-  img{
-    max-width: 100%;
-    display: block;
-  }
+  
+  
 .nombre-sitio{
-     font-size:3.5rem;/*35px */
+    font-size:3.5rem;/*35px */
     margin-top: 5rem;  /*50px */
     text-align: center;
 }
@@ -76,7 +98,14 @@ h1,h2,h3{
     border-top: solid thin #e1e1e1;
     padding: 2rem 0;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width: 768px){ 
+  .nav-principal{
     justify-content: space-evenly;
+    flex-direction: row;
+  }
 }
 .nav-principal a{
   font-size: 2.5rem;
@@ -86,12 +115,28 @@ h1,h2,h3{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+    height: 25rem;
+}
+@media (min-width: 768px){ 
+  .hero-img{
     height: 55rem;
+   }
 }
 
 /* categorias */
 .categorias{
-  padding-top: 5rem;
+  padding: 5rem 0;
+}
+.categoria{
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px){ 
+  .categoria{
+    margin-bottom: 0;
+  }
+}
+.categoria img{
+  width: 100%;
 }
 .categorias h2,
 .contenido-principal h2{
@@ -110,95 +155,124 @@ h1,h2,h3{
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
 }
-.listado-categorias{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 2rem;
+@media (min-width: 768px){ 
+  .listado-categorias{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;}
 }
+
+
 /* Bloque sobre nosotros */
 .sobre-nosotros{
   margin-top: 2rem;
-  background-image: linear-gradient(to right, transparent 50%,#037bc0 50%, #037bc0 100% )
+  background-image: linear-gradient(to bottom, transparent 50%,#037bc0 50%, #037bc0 100% )
   ,url(../img/nosotros.jpg);
-  padding: 10rem 0;
+  background-position: center,top left;
   background-repeat: no-repeat;
-  background-size: 100%, 120rem; /* esto es que le de un 100% a mi linear-gradient y 120 rem a mi imagen */
-  background-position: left center;
+  background-size: 100%, 70rem; /* esto es que le de un 100% a mi linear-gradient y 120 rem a mi imagen */
+}
+
+@media (min-width: 768px){ 
+  .sobre-nosotros{
+    margin-top: 2rem;
+    background-image: linear-gradient(to right, transparent 50%,#037bc0 50%, #037bc0 100% )
+    ,url(../img/nosotros.jpg);
+    background-position: left center;
+    padding: 10rem 0;
+    background-size: 100%, 130rem; /* esto es que le de un 100% a mi linear-gradient y 120 rem a mi imagen */
+  }
 }
 /* grid  */
-/* .sobre-nosotros-grid{
+.sobre-nosotros-grid{
   display: grid;
-  grid-template-columns: repeat(2,1fr);
-  column-gap: 8rem;
- 
+  grid-template-rows: repeat(2, 1fr);
 }
-.texto-nosotros{
- grid-column: 2 / 3;
-} */
+@media (min-width: 768px){ 
+  .sobre-nosotros-grid{
+    grid-template-columns: repeat(2, 1fr);
+     grid-template-rows: unset; /*para contrastar con lo de arriba y no interfiera */
+     column-gap: 10rem;
+
+  }
+}
 /* flex-box */
-.sobre-nosotros-flex{
+/* .sobre-nosotros-flex{
  display: flex;
  justify-content: flex-end;
-}
+} */
 .texto-nosotros{
-  flex-basis: 50%;
-  padding-left: 10rem;
+  grid-row: 2 / 3;
   color: #fff;
+  padding: 5rem;
+ }
+ @media (min-width: 768px){ 
+  .texto-nosotros{
+    grid-column: 2 / 3;
+   }
  }
 /* listado de productos */
+
 .contenido-principal{
  padding-top: 5rem;
 }
-.listado-productos{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  /* column-gap: 2rem;
-  row-gap: 2rem; */
-  gap: 2rem; /* es un atajo de column-gap y row-gap */
+@media (min-width: 768px){ 
+  .listado-productos{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* column-gap: 2rem;
+    row-gap: 2rem; */
+    gap: 2rem; /* es un atajo de column-gap y row-gap */
+  }
+  .producto:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+  .producto:nth-child(1) img{
+    height: 45rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  .producto:nth-child(2) {
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
-.producto:nth-child(1) {
-  grid-column-start: 1;
-  grid-column-end: 7;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
+.producto:nth-child(2) img,
+.producto:nth-child(3) img {
+    height: 30rem;
+    width: 100%;
+    object-fit: cover;
 }
-.producto:nth-child(1) img{
-  height: 45rem;
-  width: 100%;
-  object-fit: cover;
-}
-.producto:nth-child(2){
-  grid-column-start:1 ;
-  grid-column-end:4 ;
-}
-.producto:nth-child(2) img{
-  height: 30rem;
-  width: 100%;
-  object-fit: cover;
- }
-.producto:nth-child(3){
-  grid-column-start:4 ;
-  grid-column-end:7 ;
-}
-.producto:nth-child(3) img{
-  height: 30rem;
-  width: 100%;
-  object-fit: cover;
- }
-.producto:nth-child(4){
-  grid-column-start:1 ;
-  grid-column-end:3 ;
-}
-.producto:nth-child(5){
-  grid-column-start:3 ;
-  grid-column-end:5 ;
-}
-.producto:nth-child(6){
-  grid-column-start:5 ;
-  grid-column-end:7 ;
+  .producto:nth-child(3){
+    grid-column-start: 4 ;
+    grid-column-end: 7 ;
+  }
+  .producto:nth-child(4){
+    grid-column-start:1 ;
+    grid-column-end:3 ;
+  }
+  .producto:nth-child(5){
+    grid-column-start:3 ;
+    grid-column-end:5 ;
+  }
+  .producto:nth-child(6){
+    grid-column-start:5 ;
+    grid-column-end:7 ;
+  }
 }
 .producto{
   background-color:#037bc0 ; 
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px){ 
+  .producto{
+    margin-bottom: 0;
+  }
+}
+.producto:last-of-type{
+  margin-bottom: 0;
 }
 .texto-producto{
   text-align: center;
@@ -242,15 +316,27 @@ h1,h2,h3{
 /* grid */
 .site-footer h3{
   margin-bottom: .5rem;
+  text-align: center;
 }
-.grid-footer{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
 
+@media (min-width: 768px){ 
+  .grid-footer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+.grid-footer > div{
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px){ 
+  .grid-footer > div{
+    margin-bottom: 0;
+  }
 }
 .footer-menu a{
   display: block;
+  text-align: center;
 }
 .footer-menu a:hover{
   color: #037bc0;
@@ -271,26 +357,49 @@ h1,h2,h3{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 5rem;
+}
+@media (min-width: 768px){ 
+  .informacion-nosotros{
+    padding: 0;
+  }
 }
 
 /* Blog */
-.contenedor-blog{
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  column-gap: 4rem;
+@media (min-width: 768px){ 
+  .contenedor-blog{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 4rem;
+  }
 }
+
 .entrada{
   border-bottom: thin solid #e1e1e1;
-  padding-bottom: 4rem;
   margin-bottom: 2rem;
+  padding-bottom: 4rem;
+}
+.entrada h2{
+  text-align: center;
+}
+@media (min-width: 768px){ 
+  .entrada h2{
+    text-align: left;
+  }
+}
+.contenido-blog{
+  padding: 2rem;
 }
  .entrada:last-of-type{ /*este se refiere al ultimo elemento */
    border:none     /*acá estoy quitando el border del ultimo elemento del blog */
 }
-.entrada-meta{
-  display: flex;
-  justify-content: space-between;
+@media (min-width: 768px){ 
+  .entrada-meta{
+    display: flex;
+    justify-content: space-between;
+  }
 }
+
 .entrada-meta p{
   font-weight:  700 /*tamaño de la fuente (bold o negrita) */
 }
